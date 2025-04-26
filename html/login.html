@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Mobile Paper</title>
+  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script defer src="../assets/js/login.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-header">
+      <i class="fas fa-lock"></i>
+      <h1>Admin Login</h1>
+      <p>Secure access to wallpaper management</p>
+    </div>
+    
+    <form id="loginForm" class="login-form">
+      <div class="form-group">
+        <label for="username">
+          <i class="fas fa-user"></i>
+          Username
+        </label>
+        <input type="text" id="username" name="username" required 
+               autocomplete="username" minlength="3" maxlength="20"
+               pattern="[a-zA-Z0-9_]+" title="Only letters, numbers, and underscores allowed">
+      </div>
+
+      <div class="form-group">
+        <label for="password">
+          <i class="fas fa-key"></i>
+          Password
+        </label>
+        <div class="password-input">
+          <input type="password" id="password" name="password" required 
+                 autocomplete="current-password" minlength="8"
+                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                 title="Must contain at least 8 characters, including letters, numbers, and special characters">
+          <button type="button" class="toggle-password" id="togglePassword">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group remember-me">
+        <label class="checkbox-container">
+          <input type="checkbox" id="rememberMe" name="rememberMe">
+          <span class="checkmark"></span>
+          Remember me
+        </label>
+      </div>
+
+      <button type="submit" class="login-button">
+        <i class="fas fa-sign-in-alt"></i>
+        Sign In
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <div id="errorMessage" class="error-message">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>Invalid credentials. Please try again.</span>
+      </div>
+      <div class="security-info">
+        <i class="fas fa-shield-alt"></i>
+        <span>Secure connection</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

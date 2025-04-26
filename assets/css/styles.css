@@ -1,0 +1,438 @@
+/* ===========================
+   Global Styles
+=========================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('../images/day.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #111111;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.dark {
+  background: url('../images/night.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+/* ===========================
+   Header Styles
+=========================== */
+.site-header {
+  background: rgba(255, 255, 255, 0.8);
+  color: #111111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.dark .site-header {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.site-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111111;
+  text-decoration: none;
+  text-align: center;
+}
+
+body.dark .site-title {
+  color: #ffffff;
+}
+
+/* ===========================
+   Wallpaper Grid Styles
+=========================== */
+.wallpaper-grid {
+  column-count: 6; /* Adjust based on screen size */
+  column-gap: 1rem;
+  padding: 2rem;
+}
+
+.category-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  color: #111111;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+}
+
+body.dark .category-title {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+
+.wallpaper-item.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.wallpaper-grid img {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+}
+
+.wallpaper-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================
+   Modal Styles
+=========================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#closeModal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+#downloadBtn {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 1.2rem;
+  color: white;
+  background: #4f46e5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ===========================
+   Footer Styles
+=========================== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+body.dark footer {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+/* ===========================
+   Dark Mode Toggle Button
+=========================== */
+#themeToggle {
+  width: 44px;
+  height: 44px;
+  background: var(--toggle-bg); /* Dynamic background color */
+  border: none;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 0, 0, 0.2); /* Glow effect for light mode */
+  color: var(--toggle-icon); /* Dynamic icon color */
+  font-size: 1.44rem;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, box-shadow 0.3s ease-in-out;
+}
+
+#themeToggle:active {
+  transform: scale(0.92);
+}
+
+/* Glow Effect for Dark Mode */
+body.dark #themeToggle {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.555); /* Glow effect for dark mode */
+}
+
+/* Light Mode Variables */
+:root {
+  --toggle-bg: #1a1919d3; /* Dark button for light mode */
+  --toggle-icon: #ffffff; /* White icon for light mode */
+}
+
+/* Dark Mode Variables */
+body.dark {
+  --toggle-bg: #ffffff; /* White button for dark mode */
+  --toggle-icon: #333333; /* Dark icon for dark mode */
+}
+
+/* ===========================
+   Category Toggle (Header version)
+=========================== */
+.category-toggle {
+  position: relative;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.3); /* Light mode */
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+.category-toggle::before {
+  content: '';
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+.category-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .category-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark .category-toggle:hover {
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Pulse Glow Animation */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+body.dark .category-toggle {
+  animation: pulse-glow-dark 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow-dark {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ===========================
+   Sliding Category Panel
+=========================== */
+.category-panel {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 280px;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem 1.5rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  color: white;
+}
+
+.category-panel.show {
+  right: 0;
+}
+
+.category-panel h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #00ffe0;
+  text-shadow: 0 0 3px #00ffe0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.category-panel ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.category-panel li {
+  margin: 1rem 0;
+}
+
+.category-panel a {
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.category-panel a:hover {
+  background: rgba(0, 255, 224, 0.1);
+  color: #00ffe0;
+  transform: translateX(4px);
+}
+
+body.dark .category-panel {
+  background: rgba(0, 0, 0, 0.92);
+  color: white;
+}
+.toggle-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+.toggle-btn:hover {
+  background: #4f46e5;
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.6);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+body.dark .toggle-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+/* Go Back Button Styling */
+.go-back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.go-back-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.go-back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1600px) {
+  .wallpaper-grid {
+    column-count: 5;
+  }
+}
+
+@media (max-width: 1200px) {
+  .wallpaper-grid {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 992px) {
+  .wallpaper-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .wallpaper-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .wallpaper-grid {
+    column-count: 1;
+  }
+}

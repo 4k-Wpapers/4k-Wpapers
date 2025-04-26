@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Wallpapers</title>
+  <link rel="stylesheet" href="../assets/css/upload.css">
+  <script defer src="../assets/js/upload.js"></script>
+</head>
+<body class="upload-page">
+  <header>
+    <h1 class="fade-in">Wallpaper Code Generator</h1>
+  </header>
+  <main class="fade-in">
+    <form id="uploadForm" class="upload-form">
+      <div class="form-group">
+        <label for="wallpaperType">Wallpaper Type:</label>
+        <select id="wallpaperType" name="wallpaperType" required>
+          <option value="mobile">Mobile Wallpaper</option>
+          <option value="pc">PC Wallpaper</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="Space">Space</option>
+          <option value="Anime">Anime</option>
+          <option value="Digital Art">Digital Art</option>
+          <option value="Gaming">Gaming</option>
+          <option value="Windows">Windows</option>
+          <option value="Uncategorized">Uncategorized</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="subcategory">Subcategory:</label>
+        <select id="subcategory" name="subcategory" required>
+          <option value="General">General</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="wallpapers">Select Wallpapers:</label>
+        <input type="file" id="wallpapers" name="wallpapers" multiple accept="image/*" required>
+        <p class="file-info">Supported formats: JPG, PNG. Max size: 10MB per image.</p>
+      </div>
+
+      <div id="previewContainer" class="preview-container">
+        <h3>Selected Images</h3>
+        <div id="imagePreviews" class="image-previews"></div>
+      </div>
+
+      <div class="button-group">
+        <button type="button" id="clearSelection">Clear Selection</button>
+        <button type="button" id="generateCode">Generate Code</button>
+      </div>
+    </form>
+
+    <div class="code-container">
+      <h2>Generated Code</h2>
+      <div class="code-actions">
+        <button id="copyCode">Copy Code</button>
+      </div>
+      <textarea id="generatedCode" rows="10" readonly></textarea>
+    </div>
+  </main>
+</body>
+</html>
